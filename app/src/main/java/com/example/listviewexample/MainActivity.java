@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
     };
+    AdapterView.OnItemClickListener select3Listener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            HashMap<String, String> selectedHash = (HashMap<String, String>) parent.getItemAtPosition(position);
+            Toast.makeText(getApplicationContext(), "hi hi hi " + selectedHash.get("name"), Toast.LENGTH_SHORT).show();
+        }
+
+    };
+
 
 
     @Override
@@ -47,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        int selection = 2;
+        int selection = 3;
         populateListView(selection);
 
 
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             case 3:
                 usingTwoLines();
+                petList.setOnItemClickListener(select3Listener);
                 break;
 
         }
@@ -112,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         petList.setAdapter(adapter);
 
-
-
     }
+
+
 };
